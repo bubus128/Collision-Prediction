@@ -1,0 +1,54 @@
+[System]
+Name='tarcie'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=2
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='predkosc_wejsciowa_x'
+Range=[-100 100]
+NumMFs=2
+MF1='ujemna':'trimf',[-100.8 -100 0]
+MF2='dodatnia':'trimf',[0 100 100]
+
+[Input2]
+Name='predkosc_wejsciowa_y'
+Range=[-100 100]
+NumMFs=2
+MF1='ujemna':'trimf',[-100.8 -100 0]
+MF2='dodatnia':'trimf',[0 100 100]
+
+[Output1]
+Name='tarcie_x'
+Range=[-0.1 0.1]
+NumMFs=2
+MF1='dodatnie':'trimf',[0 0.1 20000]
+MF2='ujemne':'trimf',[-0.1333 -0.1 0]
+
+[Output2]
+Name='tarcie_y'
+Range=[-0.1 0.1]
+NumMFs=2
+MF1='dodatnie':'trimf',[0 0.1 20000]
+MF2='ujemne':'trimf',[-0.1333 -0.1 0]
+
+[Rules]
+1 0, 2 0 (1) : 1
+2 0, 1 0 (1) : 1
+0 1, 0 2 (1) : 1
+0 2, 0 1 (1) : 1
+1 1, 0 2 (0.2) : 1
+2 1, 0 2 (0.2) : 1
+1 2, 0 1 (0.2) : 1
+2 2, 0 1 (0.2) : 1
+1 1, 2 0 (0.2) : 1
+1 2, 2 0 (0.2) : 1
+2 2, 1 0 (0.2) : 1
+2 1, 1 0 (0.2) : 1

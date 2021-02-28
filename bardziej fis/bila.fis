@@ -1,0 +1,33 @@
+[System]
+Name='bila'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=1
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='predkosc_wzgledna'
+Range=[0 100]
+NumMFs=1
+MF1='mf3':'trimf',[0 100 141]
+
+[Input2]
+Name='kąt_zdezenia'
+Range=[0 6.28318530717959]
+NumMFs=1
+MF1='mf1':'trimf',[-2.618 0 6.28318530717959]
+
+[Output1]
+Name='przyspieszenie'
+Range=[0 300]
+NumMFs=1
+MF1='mf3':'trimf',[0 300 425]
+
+[Rules]
+1 1, 1 (1) : 1
